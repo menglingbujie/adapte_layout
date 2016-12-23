@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>高度自适应-wrap外包裹</title>
+    <style>
+    *{box-sizing: border-box;}
+    html,body{
+      width:100%;padding:0;margin:0;height:100%;
+    }
+    .container{
+      background-color:gray;height:inherit;
+    }
+    .wrap{
+      width:1000px;height:inherit;
+      margin:0 auto;overflow:hidden;
+      position:relative;
+    }
+    .header{
+      height:100px;width:100%;
+      border:1px solid pink;
+      position:absolute;top:0;
+    }
+    .footer{
+      height:88px;width:100%;
+      border:1px solid blue;
+      position:absolute;bottom:0;
+    }
+
+    .content{
+      height:100%;
+      border:2px solid green;
+      width:100%;
+      padding:100px 0 88px;
+      min-height:768px;
+      overflow:hidden;
+    }
+    @media screen and (max-height:768px){
+      .footer{position:relative;background:blue;top:-88px;}
+    }
+
+    .list{height:100%;border:2px solid yellow;margin:0;width:100%;}
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="wrap">
+        <div class="header"></div>
+        <div class="content">
+          <table class="list"></table>
+        </div>
+        <div class="footer"></div>
+      </div>
+    </div>
+  </body>
+</html>

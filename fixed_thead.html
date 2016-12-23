@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Table头部滚动时固定</title>
+    <link href="libs/jquery.mCustomScrollbar.min.css" rel="stylesheet" type="text/css" />
+    <style>
+    *{box-sizing: border-box;}
+    html,body{
+      width:100%;padding:0;margin:0;height:100%;
+      background-color:lightgray;
+    }
+    .table{
+			border-collapse:collapse;
+		}
+		.fixedThead{
+			display: inherit;
+			width: 100%;
+		}
+		.scrollTbody{
+			display: block;
+			height: 500px;
+			overflow: auto;
+			width: 100%;
+		}
+		.table td,.table th {
+      text-align: center;height:60px;
+      word-break: keep-all;vertical-align: middle;
+		}
+</style>
+  </head>
+  <body>
+    <table class="table" border="1" width="100%">
+  		<thead class="fixedThead">
+  			<tr>
+          <th td="30%">name</th>
+          <th td="40%">birthday</th>
+          <th td="30%">controll</th>
+        </tr>
+  		</thead>
+  		<tbody class="scrollTbody mCustomScrollbar" data-mcs-theme="minimal-dark">
+  		  <tr>
+          <td>Xiaoming</td>
+          <td>2013/12/03</td>
+          <td>
+            <button>Edit</button>
+            <button>Info</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Xiaoming</td>
+          <td>2013/12/03</td>
+          <td>
+            <button>Edit</button>
+            <button>Info</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Xiaoming</td>
+          <td>2013/12/03</td>
+          <td>
+            <button>Edit</button>
+            <button>Info</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Xiaoming</td>
+          <td>2013/12/03</td>
+          <td>
+            <button>Edit</button>
+            <button>Info</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Xiaoming</td>
+          <td>2013/12/03</td>
+          <td>
+            <button>Edit</button>
+            <button>Info</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Xiaoming</td>
+          <td>2013/12/03</td>
+          <td>
+            <button>Edit</button>
+            <button>Info</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Xiaoming</td>
+          <td>2013/12/03</td>
+          <td>
+            <button>Edit</button>
+            <button>Info</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Xiaoming</td>
+          <td>2013/12/03</td>
+          <td>
+            <button>Edit</button>
+            <button>Info</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Xiaoming</td>
+          <td>2013/12/03</td>
+          <td>
+            <button>Edit</button>
+            <button>Info</button>
+          </td>
+        </tr>
+  		</tbody>
+  	</table>
+  <script src="libs/jquery.min.js"></script>
+  <script src="libs/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script>
+  $(function(){
+    $(".scrollTbody").mCustomScrollbar({scrollInertia:150});
+    function fixTdWidth(){
+      $(".fixedThead th").each(function(idx,ele){
+        var _thw = $(ele).width();
+        $(".scrollTbody td").eq(idx).css("width",_thw+4.5);
+      })
+
+    }
+    fixTdWidth();
+    $(window).resize(function(){
+      fixTdWidth();
+    })
+  })
+
+  </script>
+  </body>
+</html>
